@@ -1,4 +1,3 @@
-" https://youtu.be/1f7l2-Fap2s
 " source % == sources the file that you have on right now
 
   "      ██      ██ ██ ████     ████ ███████     ██████ 
