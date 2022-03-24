@@ -1,1 +1,4 @@
 # CONFIG-FILES
+--
+- NEOVIM
+- ZSH
