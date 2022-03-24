@@ -1,4 +1,4 @@
-## MY EVER FAVORATE TEXT EDITOR(NEOVIM/VIM)
+## MY EVER FAVORITE TEXT EDITOR(NEOVIM/VIM)
 **File Structure:-**</br>
 ```~/.config/nvim/init.vim```</br>
 ```~/.config/nvim/autoload/plug.vim```</br>
