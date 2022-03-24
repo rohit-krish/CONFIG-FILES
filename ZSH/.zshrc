@@ -203,6 +203,7 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
+# following are i extra added for my personal use
 
 alias nv=nvim
 # flutter sdk PATH
@@ -217,7 +218,3 @@ alias bashdir='cd ~/Desktop/BASH'
 alias del=trash
 
 # release key config
-export p4a_release_keystore=~/keystores/my_release_key.keystore
-export p4a_release_keystore_passwd=appsofrohitisawesome
-export p4a_release_keyalias=my_alias
-export p4a_release_keyalias_passwd=appsofrohitisawesome
