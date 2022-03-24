@@ -1,5 +1,5 @@
 ## MY EVER FAVORATE TEXT EDITOR
-**File Structure:-**(<-- two spaces)
+**File Structure:-**(<--  )
 ```~/.config/nvim/init.vim```
 ```~/.config/nvim/autoload/plug.vim```
 ```~/.config/nvim/plugged/*```
