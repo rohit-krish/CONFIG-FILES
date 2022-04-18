@@ -1,4 +1,4 @@
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7005ZNWTutANhnon4wy-ji_MI6zvoR4VEvrVH7IsjMw&s">
+<img src="https://github.com/rohit-krish/CONFIG-FILES/blob/main/NEOVIM/Screenshot%20from%202022-04-18%2010-36-25.png">
 ## MY EVER FAVORITE TEXT EDITOR(NEOVIM/VIM)
 **File Structure:-**</br>
 ```~/.config/nvim/init.vim```</br>
