@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'https://github.com/ap/vim-css-color'
 
     " AutoCompletion ,, extra to do is :CocInstall coc-python , coc-clangd -- in ex-command " CocCommand clangd.install" and i also do sudo apt install ccls
+    " Force autocompletion Ctrl+n Ctrl+p
     Plug 'https://github.com/neoclide/coc.nvim'
 
     " File Icons in NERDTree
