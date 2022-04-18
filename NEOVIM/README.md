@@ -8,7 +8,7 @@
 >using [***vim-plug***](https://github.com/junegunn/vim-plug) for to maintain and install new plugins for my neovim</br>
 >***~/.config/nvim/plugged/*** contains my extra added plugins files</br>
 >
-##### Installation of vim-plug[Unix/Linux]
+### Installation of vim-plug[Unix/Linux]
 ```sh
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
