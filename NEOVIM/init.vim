@@ -105,8 +105,9 @@ endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-let g:airline_theme='bubblegum'
+" let g:airline_theme='bubblegum'
 " let g:airline_theme='codedark'
+let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 0
