@@ -204,17 +204,23 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 
 # following are i extra added for my personal use
+# source ~/.zshrc
 
 alias nv=nvim
-# flutter sdk PATH
-export PATH=/home/rohit/flutter/bin:$PATH
-# comdline-tools PATH
-# export PATH="$PATH:/home/android/sdk/cmdline-tools/bin"
 alias pydir='cd ~/Desktop/PYTHON'
 alias cdir='cd ~/Desktop/C'
-export PATH=~/.local/bin/:$PATH
-alias usbdir='/media/rohit/USB-DRIVE'
 alias bashdir='cd ~/Desktop/BASH'
 alias del=trash
+alias mldir='cd ~/Desktop/Machine\ Learning/'
+alias flutterdir='cd ~/Desktop/FLUTTER/'
+alias dartdir='cd ~/Desktop/DART/'
+alias githubtoken='echo "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" | xclip -sel clip'
+alias removecam='sudo modprobe -r uvcvideo'
+alias recovercam='sudo modprobe uvcvideo'
+alias configzsh='nvim ~/.zshrc'
+alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}')"
+
+export PATH="$PATH:`pwd`/flutter/bin/"
+export PATH="$PATH:`pwd`/flutter/"
 
 # release key config
