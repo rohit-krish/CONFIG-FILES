@@ -222,5 +222,3 @@ alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}')"
 
 export PATH="$PATH:`pwd`/flutter/bin/"
 export PATH="$PATH:`pwd`/flutter/"
-
-# release key config
