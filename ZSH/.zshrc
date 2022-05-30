@@ -206,19 +206,21 @@ fi
 # following are i extra added for my personal use
 # source ~/.zshrc
 
+alias pydir='cd ~/CODING/PYTHON'
+alias cdir='cd ~/CODING/C'
+alias bashdir='cd ~/CODING/BASH'
+alias mldir='cd ~/CODING/Machine\ Learning/'
+alias flutterdir='cd ~/CODING/FLUTTER/'
+alias dartdir='cd ~/CODING/DART/'
+
 alias nv=nvim
-alias pydir='cd ~/Desktop/PYTHON'
-alias cdir='cd ~/Desktop/C'
-alias bashdir='cd ~/Desktop/BASH'
 alias del=trash
-alias mldir='cd ~/Desktop/Machine\ Learning/'
-alias flutterdir='cd ~/Desktop/FLUTTER/'
-alias dartdir='cd ~/Desktop/DART/'
-alias githubtoken='echo "<PUT_YOUR_TOKEN_HERE>" | xclip -sel clip'
+
 alias removecam='sudo modprobe -r uvcvideo'
 alias recovercam='sudo modprobe uvcvideo'
 alias configzsh='nvim ~/.zshrc'
-alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}')"
+alias githubtoken='echo "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" | xclip -sel clip'
+alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}') | xclip -sel clip"
 
 export PATH="$PATH:`pwd`/flutter/bin/"
 export PATH="$PATH:`pwd`/flutter/"
