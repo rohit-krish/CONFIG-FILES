@@ -40,7 +40,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'https://github.com/ap/vim-css-color'
 
     " AutoCompletion ,, extra to do is :CocInstall coc-python , coc-clangd -- in ex-command " CocCommand clangd.install" and i also do sudo apt install ccls
-    " Force autocompletion Ctrl+n Ctrl+p
     Plug 'https://github.com/neoclide/coc.nvim'
 
     " File Icons in NERDTree
@@ -66,6 +65,11 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'natebosch/vim-lsc'
     " Plug 'natebosch/vim-lsc-dart'
 
+    Plug 'EdenEast/nightfox.nvim' " Vim-Plug
+    Plug 'https://github.com/sbdchd/neoformat'
+
+    Plug 'https://github.com/vim-scripts/ScrollColors' "This is colorscheme Scroller/Chooser/Browser.
+
 call plug#end()
 
 :set mouse=a
@@ -81,22 +85,23 @@ call plug#end()
 :set smarttab
 :set softtabstop=4 " 4 spaces
 :set encoding=UTF-8
-:set nowrap " infinity width 
+" :set nowrap " infinity width 
 :set nu " see the current line number 
 :set incsearch " / and type
 :set bg=dark
-:set scrolloff=10 " while scrolling give 10 lines free
+:set scrolloff=5 " while scrolling give 5 lines free
 :set completeopt+=preview " For Previews-autocompletion
 " :set colorcolumn=100 " " it puts a line on the specified column
-" :set cursorline
+:set cursorline
 " highlight ColorColumn ctermbg=0 guibg=lightgray
 
 " specifying to use the system clipboard for copy and paste.
 :set clipboard=unnamedplus
 
 syntax on
-colorscheme gruvbox  
-" colorscheme codedark
+
+set termguicolors
+colorscheme deep-space
 
 " Airline status bar configuration
 if !exists('g:airline_symbols')
@@ -105,9 +110,8 @@ endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-" let g:airline_theme='bubblegum'
-" let g:airline_theme='codedark'
-let g:airline_theme='base16_gruvbox_dark_hard'
+" let g:airline_theme='hybrid'
+let g:airline_theme='deep_space'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 0
@@ -122,7 +126,7 @@ let python_highlight_all = 1
 
 :nmap <F8> :TagbarToggle<CR>
 :map <C-f> :NERDTreeToggle<CR>
-:map <C-t> :TerminalSplit zsh<CR>
+:map <C-t> :TerminalSplit bash<CR>
 " "+y is used to yank/copy items into the system clipboard,
 " "+p to paste items into the system clipboard
 :map <C-y> "+y
@@ -130,7 +134,7 @@ let python_highlight_all = 1
 :map <C-s> :w<CR>
 :map <C-q> :q<CR>
 " clearing the last search highlighting when press <Esc>
-nnoremap <esc> :noh<return><esc>
+nnoremap <silent><esc>  :noh<return><esc>
 
 " Start NERDTree
 " autocmd VimEnter * NERDTree
@@ -139,3 +143,6 @@ nnoremap <esc> :noh<return><esc>
 
 " run code !python  filename
 " K for documentation
+
+" au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+" au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
