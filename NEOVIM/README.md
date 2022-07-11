@@ -1,5 +1,5 @@
 ## MY EVER FAVORITE TEXT EDITOR(NEOVIM/VIM)
-<img src="[https://github.com/rohit-krish/CONFIG-FILES/blob/main/NEOVIM/Screenshot%20from%202022-04-19%2009-50-18.png](https://raw.githubusercontent.com/rohit-krish/CONFIG-FILES/main/NEOVIM/Screenshot%20from%202022-07-11%2012-35-13.png)"><br/>
+<img src="https://github.com/rohit-krish/CONFIG-FILES/blob/main/NEOVIM/Screenshot%20from%202022-07-11%2012-35-13.png"><br/>
 ## File Structure:-</br>
 ```~/.config/nvim/init.vim```</br>
 ```~/.config/nvim/autoload/plug.vim```</br>
