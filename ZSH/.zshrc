@@ -36,8 +36,8 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive tab
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=20000
+HISTSIZE=1000
+SAVEHIST=2000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
@@ -81,7 +81,6 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
-
 if [ "$color_prompt" = yes ]; then
     PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}$(venv_info)(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
     RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
@@ -203,7 +202,6 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-# following are i extra added for my personal use
 # source ~/.zshrc
 
 alias pydir='cd ~/CODING/PYTHON'
@@ -219,8 +217,11 @@ alias del=trash
 alias removecam='sudo modprobe -r uvcvideo'
 alias recovercam='sudo modprobe uvcvideo'
 alias configzsh='nvim ~/.zshrc'
-alias githubtoken='echo "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" | xclip -sel clip'
+alias confignv='nvim ~/.config/nvim/init.vim'
+alias githubtoken='echo "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" | xclip -sel clip'
 alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}') | xclip -sel clip"
+alias whichdisplaymanager='cat /etc/X11/default-display-manager'
+alias bt='/etc/init.d/bluetooth'
 
 export PATH="$PATH:`pwd`/flutter/bin/"
 export PATH="$PATH:`pwd`/flutter/"
