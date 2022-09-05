@@ -2,3 +2,4 @@
 
 - NEOVIM
 - ZSH
+- MPV
