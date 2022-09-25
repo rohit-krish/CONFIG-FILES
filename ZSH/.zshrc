@@ -204,12 +204,12 @@ fi
 
 # source ~/.zshrc
 
-alias pydir='cd ~/CODING/PYTHON'
-alias cdir='cd ~/CODING/C'
-alias bashdir='cd ~/CODING/BASH'
-alias mldir='cd ~/CODING/Machine\ Learning/'
-alias flutterdir='cd ~/CODING/FLUTTER/'
-alias dartdir='cd ~/CODING/DART/'
+alias pydir='cd ~/Desktop/Coding/PYTHON'
+alias cdir='cd ~/Desktop/Coding/C'
+alias bashdir='cd ~/Desktop/Coding/BASH'
+alias mldir='cd ~/Desktop/Coding/Machine\ Learning/'
+alias flutterdir='cd ~/Desktop/Coding/FLUTTER/'
+alias dartdir='cd ~/Desktop/Coding/DART/'
 
 alias nv=nvim
 alias del=trash
@@ -218,10 +218,19 @@ alias removecam='sudo modprobe -r uvcvideo'
 alias recovercam='sudo modprobe uvcvideo'
 alias configzsh='nvim ~/.zshrc'
 alias confignv='nvim ~/.config/nvim/init.vim'
-alias githubtoken='echo <token> | xclip -sel clip'
+alias githubtoken='echo "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" | xclip -sel clip'
 alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}') | xclip -sel clip"
 alias whichdisplaymanager='cat /etc/X11/default-display-manager'
 alias bt='/etc/init.d/bluetooth'
+alias friends='firefox https://ling-online.net/en/videos/serials/friends-uncut_'
 
 export PATH="$PATH:`pwd`/flutter/bin/"
 export PATH="$PATH:`pwd`/flutter/"
+
+alias start_debian_aws='ssh -i "~/Desktop/Coding/AWS/debian_aws_keypair.pem" admin@35.75.155.160'
+alias debian_aws_ip='echo "http://35.75.155.160" | xclip -sel clip'
+
+#things in my server
+#export PATH="$PATH:`pwd`/.local/bin"
+#alias run_server="guicorn3 --workers=3 main:app --daemon --access-logfile ~/Notes-Website/gunicorn3.log"
+#alias stop_server="sudo pkill -f gunicorn3"
