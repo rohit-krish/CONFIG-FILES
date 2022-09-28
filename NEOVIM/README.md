@@ -1,4 +1,4 @@
-## MY EVER FAVORITE TEXT EDITOR(NEOVIM/VIM)
+## [NEOVIM/VIM]
 <img src="https://github.com/rohit-krish/CONFIG-FILES/blob/main/NEOVIM/Screenshot%20from%202022-07-11%2012-35-13.png"><br/>
 ## File Structure:-</br>
 ```~/.config/nvim/init.vim```</br>
