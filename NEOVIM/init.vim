@@ -129,7 +129,7 @@ map <Leader>tp :new term://bash<CR>ipython3<CR><C-\><C-n><C-w>k
 " :echo expand('%:e') 	    txt 	            name of file's extension ('extension') 
 
 
-" CODE RUNNER
+" CODE RUNNER [ just like the extension in vscode ]
 
 function! CodeRunner()
     let supported_files = {"py":1,"c":1}
