@@ -52,6 +52,12 @@ call plug#end()
 " specifying to use the system clipboard for copy and paste.
 :set clipboard=unnamedplus
 
+" select autocompleted pop up with [ENTER]
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+
+" trigger autocompletion with Ctrl+Space
+inoremap <silent><expr> <c-space> coc#refresh()
+
 syntax on
 
 set termguicolors
@@ -125,19 +131,23 @@ map <Leader>tp :new term://bash<CR>ipython3<CR><C-\><C-n><C-w>k
 
 " CODE RUNNER
 
-let supported_files = {"py":1,"c":1}
-if get(supported_files,expand('%:e'),0)
-    let executor_map = {
-                \"py":"cd \"".expand('%:p:h')."\" ; python -u \"".expand('%:t')."\"<cr>",
-                \"c":"cd \"".expand('%:p:h')."\" ; gcc \"".expand('%:t')."\" -o main ; ./main"."<cr>"
-                \}
-    execute "nnoremap <F5> :!".executor_map[expand('%:e')]
-    " execute "nnoremap <F5> :new term://bash<CR>i".executor_map[expand('%:e')]
-endif
+function! CodeRunner()
+    let supported_files = {"py":1,"c":1}
+    if get(supported_files,expand('%:e'),0)
+        let executor_map = {
+                    \"py":"cd \"".expand('%:p:h')."\" ; python -u \"".expand('%:t')."\"",
+                    \"c":"cd \"".expand('%:p:h')."\" ; gcc \"".expand('%:t')."\" -o main ; ./main"
+                    \}
+        execute ":!".executor_map[expand('%:e')]
+        " execute ":belowright vertical new term://bash<CR>i".executor_map[expand('%:e')]
+    endif
+endfunction
 
+nnoremap <F5> :call CodeRunner()<CR>
+
+nnoremap <A-t> :belowright vertical new term://zsh<CR>
 
 " Start NERDTree
 " autocmd VimEnter * NERDTree
 " Go to previous (last accessed) window.
 " autocmd VimEnter * wincmd p
-
