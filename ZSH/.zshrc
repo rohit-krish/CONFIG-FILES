@@ -235,7 +235,7 @@ alias friends='firefox https://ling-online.net/en/videos/serials/friends-uncut_'
 export PATH="$PATH:`pwd`/flutter/bin/"
 export PATH="$PATH:`pwd`/flutter/"
 
-alias start_debian_aws='ssh -i "~/Desktop/Coding/AWS/debian_aws_keypair.pem" admin@35.75.155.160'
+alias start_debian_aws='ssh -i "~/Desktop/Coding/AWS/debian_aws_keypair.pem" admin@<public ip>'
 
 #things in my server
 #export PATH="$PATH:`pwd`/.local/bin"
