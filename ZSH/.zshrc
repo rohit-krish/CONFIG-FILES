@@ -81,8 +81,13 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
+
+git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+# \$(git_branch)\$ 
 if [ "$color_prompt" = yes ]; then
-    PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}$(venv_info)(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+    PROMPT=$'%F{%(#.blue.green)}┌──$(git_branch)${debian_chroot:+($debian_chroot)──}$(venv_info)(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
     RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
 
     # enable syntax-highlighting
@@ -207,18 +212,21 @@ fi
 alias pydir='cd ~/Desktop/Coding/PYTHON'
 alias cdir='cd ~/Desktop/Coding/C'
 alias bashdir='cd ~/Desktop/Coding/BASH'
-alias mldir='cd ~/Desktop/Coding/Machine\ Learning/'
-alias flutterdir='cd ~/Desktop/Coding/FLUTTER/'
+alias mldir='cd ~/Desktop/Machine\ Learning/'
+alias dldir='cd ~/Desktop/Machine\ Learning/DeepLearning/'
+alias flutterdir='cd ~/Desktop/Coding/Flutter/'
 alias dartdir='cd ~/Desktop/Coding/DART/'
+alias cpdir='cd ~/Desktop/Competetive\ Programming/'
 
 alias nv=nvim
-alias del=trash
+alias rm=trash
+alias cls=clear
 
 alias removecam='sudo modprobe -r uvcvideo'
 alias recovercam='sudo modprobe uvcvideo'
 alias configzsh='nvim ~/.zshrc'
 alias confignv='nvim ~/.config/nvim/init.vim'
-alias githubtoken='echo <token_id> | xclip -sel clip'
+alias gt='echo "<your-github-token>" | xclip -sel clip'
 alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}') | xclip -sel clip"
 alias whichdisplaymanager='cat /etc/X11/default-display-manager'
 alias bt='/etc/init.d/bluetooth'
@@ -228,7 +236,6 @@ export PATH="$PATH:`pwd`/flutter/bin/"
 export PATH="$PATH:`pwd`/flutter/"
 
 alias start_debian_aws='ssh -i "~/Desktop/Coding/AWS/debian_aws_keypair.pem" admin@35.75.155.160'
-alias debian_aws_ip='echo "http://35.75.155.160" | xclip -sel clip'
 
 #things in my server
 #export PATH="$PATH:`pwd`/.local/bin"
