@@ -8,11 +8,12 @@
     "code-runner.executorMap": {
         "javascript": "node",
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        // "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "c": "cd $dir && gcc -Wall \"$fileName\" -o main && ./main ; rm main",
         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "php": "php",
-        "python": "cd $dir && python3.10 -u $fileName",
+        "python": "cd $dir && python3.10 -u \"$fileName\"",
         "perl": "perl",
         "perl6": "perl6",
         "ruby": "ruby",
@@ -62,7 +63,6 @@
     "git.confirmForcePush": false,
     "git.confirmNoVerifyCommit": false,
     "git.confirmSync": false,
-    "git.enabled": false,
     "material-icon-theme.folders.color": "#90a4ae",
     "notebook.lineNumbers": "on",
     "python.defaultInterpreterPath": "/usr/bin/python",
@@ -91,13 +91,14 @@
         // "editor.defaultFormatter": "vscode.css-language-features",
         // "editor.tabSize": 2
     },
-    "workbench.iconTheme": "material-icon-theme",
     "jupyter.askForKernelRestart": true,
     "editor.renderWhitespace": "none",
-    "files.associations": {
-        "*.py": "python"
-    },
-    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Horizon",
+    "workbench.iconTheme": "material-icon-theme",
+    "notebook.output.textLineLimit": 10000,
+    "git.path": "/usr/bin/git",
+    "git.enabled": false,
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "One Dark Pro Flat",
+    "glassit.step": 1,
+    "editor.minimap.enabled": false,
 }
