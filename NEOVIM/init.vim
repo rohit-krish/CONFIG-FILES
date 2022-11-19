@@ -16,10 +16,9 @@ Plug 'flazz/vim-colorschemes' " Color Scheme
 Plug 'https://github.com/tpope/vim-commentary' " For commenting , gcc , gc
 Plug 'https://github.com/vim-airline/vim-airline' " Status Bar
 Plug 'https://github.com/ap/vim-css-color' " color preview
-Plug 'https://github.com/neoclide/coc.nvim', {'for':['python','c']} " AutoCompletion ,, extra to do is :CocInstall coc-python , coc-clangd -- in ex-command ' CocCommand clangd.install' and i also did sudo apt install ccls
+Plug 'https://github.com/neoclide/coc.nvim', {'for':['python','c','sh']} " AutoCompletion ,, extra to do is :CocInstall coc-python , coc-clangd -- in ex-command ' CocCommand clangd.install' and i also did sudo apt install ccls
 Plug 'https://github.com/ryanoasis/vim-devicons', " File Icons in NERDTree
 Plug 'https://github.com/preservim/tagbar', {'on':'TagbarToggle','for':['python','c']} "Tagbar for code navigation ,, the extra thing i did is this -> apt install exuberant-ctags
-" Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', " nerdtree icons
 Plug 'https://github.com/vim-scripts/ScrollColors',{'on':'SCROLLCOLOR'} "This is colorscheme Scroller/Chooser/Browser.
 Plug 'https://github.com/dstein64/vim-startuptime',{'on':'StartupTime'}
@@ -129,23 +128,24 @@ map <Leader>tp :new term://bash<CR>ipython3<CR><C-\><C-n><C-w>k
 " :echo expand('%:e') 	    txt 	            name of file's extension ('extension') 
 
 
-" CODE RUNNER [ just like the extension in vscode ]
+" CODE RUNNER
 
 function! CodeRunner()
     let supported_files = {"py":1,"c":1}
     if get(supported_files,expand('%:e'),0)
         let executor_map = {
                     \"py":"cd \"".expand('%:p:h')."\" ; python -u \"".expand('%:t')."\"",
-                    \"c":"cd \"".expand('%:p:h')."\" ; gcc \"".expand('%:t')."\" -o main ; ./main"
+                    \"c":"cd \"".expand('%:p:h')."\" ; gcc -Wall \"".expand('%:t')."\" -o main ; ./main; rm main"
                     \}
         execute ":!".executor_map[expand('%:e')]
         " execute ":belowright vertical new term://bash<CR>i".executor_map[expand('%:e')]
     endif
 endfunction
 
-nnoremap <F5> :call CodeRunner()<CR>
+nnoremap <F5> :call CodeRunner() <CR>
 
-nnoremap <A-t> :belowright vertical new term://zsh<CR>
+" nnoremap <A-t> :belowright vertical new term://zsh<CR>i
+nnoremap <A-t> :below new term://zsh<CR>i
 
 " Start NERDTree
 " autocmd VimEnter * NERDTree
