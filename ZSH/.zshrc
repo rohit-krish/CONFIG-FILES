@@ -227,7 +227,7 @@ source /etc/environment
 # alias recovercam='sudo modprobe uvcvideo'
 # alias configzsh='nvim ~/.zshrc'
 # alias confignv='nvim ~/.config/nvim/init.vim'
-# alias gt='echo "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" | xclip -sel clip'
+# alias gt='echo "<your key>" | xclip -sel clip'
 # alias cpip="echo $(ifconfig | grep broadcast | awk '{print $2}') | xclip -sel clip"
 # alias whichdisplaymanager='cat /etc/X11/default-display-manager'
 # alias bt='/etc/init.d/bluetooth'
