@@ -191,7 +191,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -l'
+alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -207,8 +207,6 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-# source ~/.zshrc
-
 alias pydir='cd ~/Desktop/Coding/PYTHON'
 alias cdir='cd ~/Desktop/Coding/C'
 alias bashdir='cd ~/Desktop/Coding/BASH'
@@ -217,25 +215,30 @@ alias dldir='cd ~/Desktop/Machine\ Learning/DeepLearning/'
 alias flutterdir='cd ~/Desktop/Coding/Flutter/'
 alias dartdir='cd ~/Desktop/Coding/DART/'
 alias cpdir='cd ~/Desktop/Competetive\ Programming/'
+alias cvdir='~/Desktop/Machine\ Learning/CV/'
 
-alias nv=nvim
-alias rm=trash
-alias cls=clear
+source /etc/environment
+## below are in /etc/environment
+# alias nv=nvim
+# alias rm=trash
+# alias cls=clear
 
-alias removecam='sudo modprobe -r uvcvideo'
-alias recovercam='sudo modprobe uvcvideo'
-alias configzsh='nvim ~/.zshrc'
-alias confignv='nvim ~/.config/nvim/init.vim'
-alias gt='echo "<your-github-token>" | xclip -sel clip'
-alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}') | xclip -sel clip"
-alias whichdisplaymanager='cat /etc/X11/default-display-manager'
-alias bt='/etc/init.d/bluetooth'
+# alias removecam='sudo modprobe -r uvcvideo'
+# alias recovercam='sudo modprobe uvcvideo'
+# alias configzsh='nvim ~/.zshrc'
+# alias confignv='nvim ~/.config/nvim/init.vim'
+# alias gt='echo "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" | xclip -sel clip'
+# alias cpip="echo $(ifconfig | grep broadcast | awk '{print $2}') | xclip -sel clip"
+# alias whichdisplaymanager='cat /etc/X11/default-display-manager'
+# alias bt='/etc/init.d/bluetooth'
 alias friends='firefox https://ling-online.net/en/videos/serials/friends-uncut_'
 
 export PATH="$PATH:`pwd`/flutter/bin/"
 export PATH="$PATH:`pwd`/flutter/"
+export PATH="$PATH:/home/rohit/MyScripts/"
 
-alias start_debian_aws='ssh -i "~/Desktop/Coding/AWS/debian_aws_keypair.pem" admin@<public ip>'
+alias start_debian_aws='ssh -i "~/Desktop/Coding/AWS/debian_aws_keypair.pem" admin@35.75.155.160'
+
 
 #things in my server
 #export PATH="$PATH:`pwd`/.local/bin"
