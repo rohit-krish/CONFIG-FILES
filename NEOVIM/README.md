@@ -19,6 +19,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.config}"/nvim/autoload/plug.vim --crea
 **If you don't want to use vim in terminal always use as an extension vim supports for most of the IDEs. I use VSCODE along with vim as an extension.</br>**
 
 <br>
+
 ### to make the coc.nvim to work do the following
 ```sh
 sudo apt install nodejs npm
@@ -28,6 +29,7 @@ yarn install
 yarn build
 ```
 ### for python
+
 ```sh
 CocInstall coc-python
 sudo apt install python3-pip # if pip not installed
