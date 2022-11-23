@@ -31,7 +31,7 @@ yarn build
 ### for python
 
 ```sh
-CocInstall coc-python
+:CocInstall coc-python
 sudo apt install python3-pip # if pip not installed
 pip3 install jedi
 pip3 install pylint
