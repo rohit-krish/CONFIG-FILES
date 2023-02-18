@@ -89,6 +89,7 @@
             "editor.background": "#181818",
             "activityBar.border": "#181818",
             "titleBar.border": "#181818",
+            "titleBar.inactiveBackground": "#181818",
             "statusBar.border": "#181818",
             "sideBar.border": "#181818",
         }
