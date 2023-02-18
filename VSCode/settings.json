@@ -6,6 +6,7 @@
     "explorer.confirmDragAndDrop": false,
     "vim.useSystemClipboard": true,
     "code-runner.executorMap": {
+        "m": "cd $dir && octave $fileName",
         "javascript": "node",
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
         // "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
@@ -13,7 +14,7 @@
         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "php": "php",
-        "python": "cd $dir && python3.10 -u \"$fileName\"",
+        "python": "cd $dir && python3.11 -u \"$fileName\"",
         "perl": "perl",
         "perl6": "perl6",
         "ruby": "ruby",
@@ -64,7 +65,6 @@
     "git.confirmNoVerifyCommit": false,
     "git.confirmSync": false,
     "material-icon-theme.folders.color": "#90a4ae",
-    "notebook.lineNumbers": "on",
     "python.defaultInterpreterPath": "/usr/bin/python",
     "oneDarkPro.italic": false,
     // my constomizations
@@ -84,6 +84,13 @@
             "terminal.background": "#23262e",
             "editorGroupHeader.tabsBackground": "#23262e",
             "welcomePage.background": "#23262e",
+        },
+        "[Default Dark+ Experimental]": {
+            "editor.background": "#181818",
+            "activityBar.border": "#181818",
+            "titleBar.border": "#181818",
+            "statusBar.border": "#181818",
+            "sideBar.border": "#181818",
         }
     },
     "[css]": {
@@ -91,14 +98,28 @@
         // "editor.defaultFormatter": "vscode.css-language-features",
         // "editor.tabSize": 2
     },
-    "jupyter.askForKernelRestart": true,
     "editor.renderWhitespace": "none",
-    "workbench.colorTheme": "Horizon",
+    "workbench.colorTheme": "Default Dark+ Experimental",
     "workbench.iconTheme": "material-icon-theme",
-    "notebook.output.textLineLimit": 10000,
+    "notebook.output.textLineLimit": 100,
     "git.path": "/usr/bin/git",
     "git.enabled": false,
-    "window.zoomLevel": 1,
     "glassit.step": 1,
+    "notebook.lineNumbers": "on",
+    "notebook.cellFocusIndicator": "border",
     "editor.minimap.enabled": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "right"
+    },
+    "workbench.startupEditor": "none",
+    "editor.linkedEditing": true,
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "window.zoomLevel": 1,
 }
