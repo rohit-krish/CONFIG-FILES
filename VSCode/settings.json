@@ -106,6 +106,7 @@
             "statusBar.border": "#1f1f1f",
             "statusBar.focusBorder": "#1f1f1f",
             "editor.wordHighlightBackground": "#1f1f1f",
+            "panel.background": "#1f1f1f",
         }
     },
     "[css]": {
