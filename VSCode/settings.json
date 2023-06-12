@@ -10,11 +10,12 @@
         "javascript": "node",
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
         // "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "c": "cd $dir && gcc -Wall \"$fileName\" -o main && ./main && rm main",
-        "cpp": "cd $dir && g++ -Wall \"$fileName\" -o main && ./main && rm main",
+        "c": "cd $dir && gcc -Wall \"$fileName\" -o main.o && ./main.o && rm main.o",
+        // "cpp": "cd $dir && g++ -Wall \"$fileName\" -o main && ./main && rm main",
+        "cpp": "cd $dir && g++ -Wall \"$fileName\" -o main.o `pkg-config --cflags --libs opencv4` && ./main.o",
         "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "php": "php",
-        "python": "cd $dir && python -u \"$fileName\"",
+        "python": "cd $dir && python3.11 -u \"$fileName\"",
         "perl": "perl",
         "perl6": "perl6",
         "ruby": "ruby",
@@ -81,15 +82,7 @@
             "editorGroupHeader.tabsBackground": "#23262e",
             "welcomePage.background": "#23262e",
         },
-        // "[Default Dark+ Experimental]": {
-        //     "editor.background": "#181818",
-        //     "activityBar.border": "#181818",
-        //     "titleBar.border": "#181818",
-        //     "titleBar.inactiveBackground": "#181818",
-        //     "statusBar.border": "#181818",
-        //     "sideBar.border": "#181818",
-        // }
-        "[Default Dark+ Experimental]": {
+        "[Default Dark Modern]": {
             "titleBar.activeBackground": "#1f1f1f",
             "titleBar.border": "#1f1f1f",
             "tab.inactiveBackground": "#1c1c1c",
@@ -103,6 +96,7 @@
             "statusBar.focusBorder": "#1f1f1f",
             // "editor.wordHighlightBackground": "#1f1f1f",
             "panel.background": "#1f1f1f",
+            "window.activeBorder": "#2f2f2f"
         }
     },
     "[css]": {
@@ -111,7 +105,6 @@
         // "editor.tabSize": 2
     },
     "editor.renderWhitespace": "none",
-    "workbench.colorTheme": "Default Dark+ Experimental",
     "workbench.iconTheme": "material-icon-theme",
     "notebook.output.textLineLimit": 100,
     "glassit.step": 1,
@@ -127,9 +120,9 @@
         "jsdelivr.com",
         "unpkg.com"
     ],
-    "editor.minimap.enabled": false,
-    "git.enabled": false,
     "[python]": {
         "editor.formatOnType": true
     },
+    "git.enabled": false,
+    "editor.minimap.enabled": false,
 }
