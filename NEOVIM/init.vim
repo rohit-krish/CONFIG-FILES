@@ -1,3 +1,4 @@
+  "
   "      ██      ██ ██ ████     ████ ███████     ██████ 
   "     ░██     ░██░██░██░██   ██░██░██░░░░██   ██░░░░██
   "     ░██     ░██░██░██░░██ ██ ░██░██   ░██  ██    ░░ 
@@ -18,8 +19,8 @@ Plug 'https://github.com/vim-airline/vim-airline' " Status Bar
 Plug 'https://github.com/ap/vim-css-color' " color preview
 Plug 'https://github.com/neoclide/coc.nvim', {'for':['python','c','sh']} " AutoCompletion ,, extra to do is :CocInstall coc-python , coc-clangd -- in ex-command ' CocCommand clangd.install' and i also did sudo apt install ccls
 Plug 'https://github.com/ryanoasis/vim-devicons', " File Icons in NERDTree
-Plug 'https://github.com/preservim/tagbar', {'on':'TagbarToggle','for':['python','c']} "Tagbar for code navigation ,, the extra thing i did is this -> apt install exuberant-ctags
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight', " nerdtree icons
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', " nerdtree icon color
+Plug 'https://github.com/preservim/tagbar', {'on':'TagbarToggle','for':['python','c','cpp']} "Tagbar for code navigation ,, the extra thing i did is this -> apt install exuberant-ctags
 Plug 'https://github.com/vim-scripts/ScrollColors',{'on':'SCROLLCOLOR'} "This is colorscheme Scroller/Chooser/Browser.
 Plug 'https://github.com/dstein64/vim-startuptime',{'on':'StartupTime'}
 
@@ -31,16 +32,14 @@ call plug#end()
 :set autoindent
 :set tabstop=4 "4 charecters "
 :set shiftwidth=4 " when i press >> or <<" 
-:set expandtab " convert tab charecters into spaces"
+" :set expandtab " convert tab charecters into spaces"
 :set smartcase " affectevely case sensitive searching until i put in a capital letter"
 :set noswapfile " don't create the swap files"
 :set nobackup
 :set smarttab
 :set softtabstop=4 " 4 spaces
-:set encoding=UTF-8
 :set nowrap " infinity width 
 :set nu " see the current line number 
-
 :set bg=dark
 :set scrolloff=5 " while scrolling give 5 lines free
 :set completeopt-=preview " For Previews-autocompletion
@@ -67,15 +66,18 @@ colorscheme deep-space
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
 let g:airline_theme='hybrid'
+let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_powerline_fonts = 1
+let g:airline_symbols.branch = ''
+let g:airline_symbols.colnr = ' ℅:'
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' :'
+let g:airline_symbols.maxlinenr = '☰ '
+let g:airline_symbols.dirty='⚡'
 
 " enable all Python syntax highlighting features
 " let python_highlight_all = 1
@@ -95,7 +97,7 @@ let g:airline_powerline_fonts = 1
 :map <C-q> :q<CR>
 
 " clearing the last search highlighting when press <Esc>
-nnoremap <silent><esc>  :noh<return><esc>
+noremap <silent><esc>  :noh<return><esc>
 
 " window resizing
 noremap <silent> <C-Left> :vertical resize -2<CR>
@@ -131,11 +133,12 @@ map <Leader>tp :new term://bash<CR>ipython3<CR><C-\><C-n><C-w>k
 " CODE RUNNER
 
 function! CodeRunner()
-    let supported_files = {"py":1,"c":1}
+    let supported_files = {"py":1,"c":1,"sh":1}
     if get(supported_files,expand('%:e'),0)
         let executor_map = {
                     \"py":"cd \"".expand('%:p:h')."\" ; python -u \"".expand('%:t')."\"",
-                    \"c":"cd \"".expand('%:p:h')."\" ; gcc -Wall \"".expand('%:t')."\" -o main ; ./main; rm main"
+                    \"c":"cd \"".expand('%:p:h')."\" ; gcc -Wall \"".expand('%:t')."\" -o main ; ./main; rm main",
+                    \"sh":"cd \"".expand('%:p:h')."\" ; chmod u+x ".expand('%:t')."; ./".expand('%:t')
                     \}
         execute ":!".executor_map[expand('%:e')]
         " execute ":belowright vertical new term://bash<CR>i".executor_map[expand('%:e')]
@@ -146,8 +149,25 @@ nnoremap <F5> :call CodeRunner() <CR>
 
 " nnoremap <A-t> :belowright vertical new term://zsh<CR>i
 nnoremap <A-t> :below new term://zsh<CR>i
+tnoremap <Esc> <C-\><C-n>
 
-" Start NERDTree
+nnoremap <A-e> :tabedit ~/.config/nvim/init.vim<CR>
+
+" " Start NERDTree
 " autocmd VimEnter * NERDTree
-" Go to previous (last accessed) window.
+" " Go to previous (last accessed) window.
 " autocmd VimEnter * wincmd p
+
+" NEOVIDE SETUP
+if exists("g:neovide")
+
+set guifont=Fira\ Code\ Nerd\ Font:h14
+let g:neovide_scale_factor = 1.0
+let g:neovide_transparency = 0.99
+let g:neovide_scroll_animation_length = 0.1
+let g:neovide_hide_mouse_when_typing = v:true
+let g:neovide_remember_window_size = v:true
+let g:neovide_cursor_animation_length=0.05
+let g:neovide_cursor_trail_size = 0.5
+
+endif
