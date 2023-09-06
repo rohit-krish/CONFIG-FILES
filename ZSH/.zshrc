@@ -1,3 +1,22 @@
+# ..............                                  
+#              ..,;:ccc,.                          
+#            ......''';lxO.                        
+#  .....''''..........,:ld;                        
+#             .';;;:::;,,.x,                       
+#        ..'''.            0Xxoc:,.  ...           
+#    ....                ,ONkc;,;cokOdc',.         
+#   .                   OMo           ':ddo.       
+#                      dMc               :OO;      
+#                      0M.                 .:o.    
+#                      ;Wd                         
+#                       ;XO,                       
+#                         ,d0Odlc;,..              
+#                             ..',;:cdOOd::,.      
+#                                      .:d;.':;.   
+#                                         'd,  .'  
+#                                           ;l   ..
+#                                            .o    
+
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
@@ -209,13 +228,17 @@ fi
 
 alias pydir='cd ~/Desktop/Coding/PYTHON'
 alias cdir='cd ~/Desktop/Coding/C'
+alias cppdir='cd ~/Desktop/Coding/C++'
 alias bashdir='cd ~/Desktop/Coding/BASH'
 alias mldir='cd ~/Desktop/Machine\ Learning/'
 alias dldir='cd ~/Desktop/Machine\ Learning/DeepLearning/'
 alias flutterdir='cd ~/Desktop/Coding/Flutter/'
 alias dartdir='cd ~/Desktop/Coding/DART/'
 alias cpdir='cd ~/Desktop/Competetive\ Programming/'
-alias cvdir='~/Desktop/Machine\ Learning/CV/'
+alias cvdir='~/Desktop/Machine\ Learning/ComputerVision/'
+alias mathdir='~/Desktop/Machine\ Learning/Mathematics'
+alias gtkdir='~/Desktop/Coding/GTK'
+alias awsdir='~/Desktop/Coding/AWS'
 
 source /etc/environment
 ## below are in /etc/environment
@@ -231,14 +254,22 @@ source /etc/environment
 # alias cpip="echo $(ifconfig | grep broadcast | awk '{print $2}') | xclip -sel clip"
 # alias whichdisplaymanager='cat /etc/X11/default-display-manager'
 # alias bt='/etc/init.d/bluetooth'
-alias friends='firefox https://ling-online.net/en/videos/serials/friends-uncut_'
+# alias friends='firefox https://ling-online.net/en/videos/serials/friends-uncut_'
 
-export PATH="$PATH:`pwd`/flutter/bin/"
-export PATH="$PATH:`pwd`/flutter/"
+export PATH="$PATH:/home/rohit/flutter/flutter/bin/"
 export PATH="$PATH:/home/rohit/MyScripts/"
+export PATH="$PATH:/home/rohit/.local/bin/"
+export PATH="$PATH:/snap/bin"
 
-alias start_debian_aws='ssh -i "~/Desktop/Coding/AWS/debian_aws_keypair.pem" admin@35.75.155.160'
+export OPENCV_ANDROID="/home/rohit/OpenCV/Android/OpenCV-android-sdk/"
+export OpenCV_DIR="/home/rohit/OpenCV/build/"
 
+export TF_CPP_MIN_LOG_LEVEL="3" # to not show the tensorflow import logs
+
+# alias start_debian_aws='ssh -i "~/Desktop/Coding/AWS/debian_aws_keypair.pem" admin@35.75.155.160'
+
+alias neovide='~/neovide'
+alias nvd='~/neovide'
 
 #things in my server
 #export PATH="$PATH:`pwd`/.local/bin"
