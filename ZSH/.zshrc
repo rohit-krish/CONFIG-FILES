@@ -16,12 +16,13 @@
 #           -osssssssssssssssssssssso-         
 #            `osssssssssssssssssssso`          
 
-setopt autocd              # change directory just by typing its name
-setopt interactivecomments # allow comments in interactive mode
-setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
-setopt notify              # report the status of background jobs immediately
-setopt numericglobsort     # sort filenames numerically when it makes sense
-setopt promptsubst         # enable command substitution in prompt
+setopt autocd                # change directory just by typing its name
+setopt interactivecomments   # allow comments in interactive mode
+setopt magicequalsubst       # enable filename expansion for arguments of the form ‘anything=expression’
+setopt notify                # report the status of background jobs immediately
+setopt numericglobsort       # sort filenames numerically when it makes sense
+setopt promptsubst           # enable command substitution in prompt
+setopt hist_ignore_all_dups  # don't save duplicate commands in the ~/.zsh_history
 
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
@@ -86,7 +87,7 @@ git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-PROMPT=$'%F{%(#.blue.green)}┌──$(git_branch)$(venv_info)(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+PROMPT=$'\n%F{%(#.blue.green)}┌──$(git_branch)$(venv_info)(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
 RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
 
 # If this is an xterm set the title to user@host:dir
@@ -103,28 +104,8 @@ precmd() {
     print -Pnr -- "$TERM_TITLE"
 }
 
-# some aliases
-alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias diff='diff --color=auto'
-alias ip='ip --color=auto'
-
-alias history="history 0"
-alias ll='ls -al'
-alias la='ls -A'
-alias l='ls -CF'
-
-alias nv=nvim
-alias rm=trash
-alias cls=clear
-
-
 export TF_CPP_MIN_LOG_LEVEL="3" # to not show the tensorflow import logs
-
+export LD_LIBRARY_PATH="/usr/lib/mylib/lib:$LD_LIBRARY_PATH"
 
 source ~/.zsh/zsh_command_not_found
 
@@ -174,3 +155,49 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
+
+
+# i installed nvm by
+# >>> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+# which was to update the nodejs version, i did that by
+# >>> nvm install 16.18.0
+# >>> nvm use 16.18.0
+
+# to uninstall nvm do the following
+# >>> nvm use system
+# >>> npm uninstall -g a_module
+
+# below codes is for nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# some aliases
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip --color=auto'
+
+alias history="history 0"
+alias ll='ls -al'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias nv=nvim
+alias rm=trash
+alias cls=clear
+
+alias pydir='cd ~/Desktop/Coding/PYTHON/'
+alias mldir='cd ~/Desktop/Machine\ Learning'
+alias cvdir='cd ~/Desktop/Machine\ Learning/Computer\ Vision'
+alias cdir='cd ~/Desktop/Coding/C'
+alias ccdir='cd ~/Desktop/Coding/CC'
+
+alias configzsh='nvim ~/.zshrc'
+alias confignv='nvim ~/.config/nvim/init.vim'
+alias mylibdir='/usr/lib/mylib'
