@@ -100,48 +100,61 @@ xterm*|rxvt*)
 esac
 
 precmd() {
-    # Print the previously configured title
-    print -Pnr -- "$TERM_TITLE"
+    # below code automatically stores the nessesery flags for c/c++ files to compile according to the current folder
+    # so that whenever i run a c++ file i only have to do; `g++ ./file.cc `echo $FLAGS_TO_USE``; # so i don't have to worry about passing the nessesory flags.
+    if [[ "$PWD" == "$cvdir/OpenCV CC" ]]; then
+        export FLAGS_TO_USE="$(pkg-config --cflags --libs opencv4 mylib)"
+    elif [[ "$PWD" == "~/Desktop/Coding/GTK/C++" ]]; then
+        export FLAGS_TO_USE="$(pkg-config --cflags --libs gtkmm-3.0)"
+    else
+        export FLAGS_TO_USE=""
+    fi
+
+    # update the terminal title
+    print -Pnr -- "$TERM_TITLE";
 }
 
 export TF_CPP_MIN_LOG_LEVEL="3" # to not show the tensorflow import logs
 export LD_LIBRARY_PATH="/usr/lib/mylib/lib:$LD_LIBRARY_PATH"
 
+# https://github.com/hashbang/shell-etc/blob/master/zsh_command_not_found
 source ~/.zsh/zsh_command_not_found
 
+# https://github.com/zsh-users/zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 
+# https://github.com/zsh-users/zsh-syntax-highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_STYLES[default]=none
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
 ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
-ZSH_HIGHLIGHT_STYLES[global-alias]=fg=magenta
+# ZSH_HIGHLIGHT_STYLES[global-alias]=fg=magenta
 ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,underline
 ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
-ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
+ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=white,underline
 ZSH_HIGHLIGHT_STYLES[path]=underline
 ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
 ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[command-substitution]=none
-ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=magenta
+# ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=magenta
 ZSH_HIGHLIGHT_STYLES[process-substitution]=none
-ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=magenta
+# ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=magenta
+# ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=magenta
+# ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=magenta
 ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
 ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
-ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta
-ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta
+# ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=magenta
+# ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta
+# ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta
+# ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta
 ZSH_HIGHLIGHT_STYLES[assign]=none
 ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
@@ -151,7 +164,7 @@ ZSH_HIGHLIGHT_STYLES[arg0]=fg=green
 ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
-ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
+# ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
 ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
@@ -192,12 +205,22 @@ alias nv=nvim
 alias rm=trash
 alias cls=clear
 
-alias pydir='cd ~/Desktop/Coding/PYTHON/'
-alias mldir='cd ~/Desktop/Machine\ Learning'
-alias cvdir='cd ~/Desktop/Machine\ Learning/Computer\ Vision'
-alias cdir='cd ~/Desktop/Coding/C'
-alias ccdir='cd ~/Desktop/Coding/CC'
-
 alias configzsh='nvim ~/.zshrc'
 alias confignv='nvim ~/.config/nvim/init.vim'
-alias mylibdir='/usr/lib/mylib'
+
+
+export pydir='/home/rohit/Desktop/Coding/PYTHON'
+alias pydir='$pydir'
+export mldir='/home/rohit/Desktop/Machine_Learning'
+alias mldir='$mldir'
+export cvdir='/home/rohit/Desktop/Machine_Learning/Computer_Vision'
+alias cvdir='$cvdir'
+export cdir='/home/rohit/Desktop/Coding/C'
+alias cdir='$cdir'
+export ccdir='/home/rohit/Desktop/Coding/CC'
+alias ccdir='$ccdir'
+export ccmylibdir='/usr/lib/mylib'
+alias ccmylibdir='$ccmylibdir'
+export pymylibdir='/home/rohit/Desktop/Coding/PYTHON/MyLib'
+alias pymylibdir='$pymylibdir'
+
