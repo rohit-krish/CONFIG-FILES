@@ -61,10 +61,11 @@
     },
     "dart.flutterHotRestartOnSave": false,
     "material-icon-theme.folders.color": "#90a4ae",
-    "python.defaultInterpreterPath": "/usr/bin/python",
+    "python.defaultInterpreterPath": "/usr/bin/python3.10",
     "python.analysis.typeCheckingMode": "off",
     "workbench.colorCustomizations": {
         "[Default Dark Modern]": {
+            "titleBar.activeBackground": "#1f1f1f",
             "titleBar.border": "#1f1f1f",
             "tab.inactiveBackground": "#1c1c1c",
             "tab.border": "#1f1f1f",
@@ -73,7 +74,7 @@
             "sideBar.background": "#1f1f1f",
             "sideBarSectionHeader.background": "#1f1f1f",
             "statusBar.background": "#1f1f1f",
-            "statusBar.border": "#1f1f1f",
+            // "statusBar.border": "#1f1f1f",
         }
     },
     "[css]": {
