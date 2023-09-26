@@ -5,17 +5,16 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "vim.useSystemClipboard": true,
+    "code-runner.fileDirectoryAsCwd": true,
     "code-runner.executorMap": {
-        "m": "cd $dir && octave $fileName",
+        "m": "octave $fileName",
         "javascript": "node",
-        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-        // "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "c": "cd $dir && gcc -Wall \"$fileName\" -o main.o && ./main.o && rm main.o",
-        // "cpp": "cd $dir && g++ -Wall \"$fileName\" -o main && ./main && rm main",
-        "cpp": "cd $dir && g++ -Wall \"$fileName\" -o main.o `pkg-config --cflags --libs opencv4` && ./main.o",
-        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "java": "javac $fileName && java $fileNameWithoutExt",
+        "c": "gcc -Wall -Werror \"$fileName\" -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+        "cpp": "g++ -Wall -Werror \"$fileName\" -o $fileNameWithoutExt `echo $FLAGS_TO_USE` && ./$fileNameWithoutExt",
+        "objective-c": "gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "php": "php",
-        "python": "cd $dir && python3.11 -u \"$fileName\"",
+        "python": "$pythonPath -u \"$fileName\"",
         "perl": "perl",
         "perl6": "perl6",
         "ruby": "ruby",
@@ -63,27 +62,9 @@
     "dart.flutterHotRestartOnSave": false,
     "material-icon-theme.folders.color": "#90a4ae",
     "python.defaultInterpreterPath": "/usr/bin/python",
-    "oneDarkPro.italic": false,
-    // my constomizations
-    //  workbench.experimental.editSessions.enabled
     "python.analysis.typeCheckingMode": "off",
     "workbench.colorCustomizations": {
-        "[One Dark Pro Flat]": {
-            "titleBar.activeBackground": "#23262e",
-            "tab.inactiveBackground": "#23262e",
-            "tab.activeBackground": "#23262e",
-            "statusBar.background": "#23262e",
-            "activityBar.background": "#23262e",
-            "sideBar.background": "#23262e",
-            "tab.activeBorder": "#d19a66",
-            "editor.background": "#23262e",
-            "panel.background": "#23262e",
-            "terminal.background": "#23262e",
-            "editorGroupHeader.tabsBackground": "#23262e",
-            "welcomePage.background": "#23262e",
-        },
         "[Default Dark Modern]": {
-            "titleBar.activeBackground": "#1f1f1f",
             "titleBar.border": "#1f1f1f",
             "tab.inactiveBackground": "#1c1c1c",
             "tab.border": "#1f1f1f",
@@ -92,22 +73,16 @@
             "sideBar.background": "#1f1f1f",
             "sideBarSectionHeader.background": "#1f1f1f",
             "statusBar.background": "#1f1f1f",
-            // "statusBar.border": "#1f1f1f",
-            "statusBar.focusBorder": "#1f1f1f",
-            // "editor.wordHighlightBackground": "#1f1f1f",
-            "panel.background": "#1f1f1f",
-            "window.activeBorder": "#2f2f2f"
+            "statusBar.border": "#1f1f1f",
         }
     },
     "[css]": {
-        "editor.defaultFormatter": "vscode.css-language-features"
-        // "editor.defaultFormatter": "vscode.css-language-features",
-        // "editor.tabSize": 2
+        "editor.defaultFormatter": "vscode.css-language-features",
+        "editor.tabSize": 2
     },
     "editor.renderWhitespace": "none",
     "workbench.iconTheme": "material-icon-theme",
     "notebook.output.textLineLimit": 100,
-    "glassit.step": 1,
     "notebook.lineNumbers": "on",
     "notebook.cellFocusIndicator": "border",
     "notebook.cellToolbarLocation": {
@@ -121,8 +96,12 @@
         "unpkg.com"
     ],
     "[python]": {
-        "editor.formatOnType": true
+        "editor.formatOnType": false,
     },
-    "git.enabled": false,
+    "snyk.yesWelcomeNotification": false,
+    "snyk.advanced.cliPath": "/home/rohit/.local/share/snyk-ls/snyk-linux",
+    "security.workspace.trust.untrustedFiles": "open",
+    "extensions.ignoreRecommendations": true,
     "editor.minimap.enabled": false,
+    "git.enabled": false,
 }
