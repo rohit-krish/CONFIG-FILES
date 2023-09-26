@@ -75,6 +75,8 @@
             "sideBarSectionHeader.background": "#1f1f1f",
             "statusBar.background": "#1f1f1f",
             // "statusBar.border": "#1f1f1f",
+            "terminal.background": "#1f1f1f",
+            "panel.background": "#1f1f1f"
         }
     },
     "[css]": {
@@ -98,6 +100,7 @@
     ],
     "[python]": {
         "editor.formatOnType": false,
+        "editor.defaultFormatter": "ms-python.black-formatter",
     },
     "snyk.yesWelcomeNotification": false,
     "snyk.advanced.cliPath": "/home/rohit/.local/share/snyk-ls/snyk-linux",
