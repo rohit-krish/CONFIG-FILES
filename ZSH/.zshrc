@@ -102,9 +102,9 @@ esac
 precmd() {
     # below code automatically stores the nessesery flags for c/c++ files to compile according to the current folder
     # so that whenever i run a c++ file i only have to do; `g++ ./file.cc `echo $FLAGS_TO_USE``; # so i don't have to worry about passing the nessesory flags.
-    if [[ "$PWD" == "$cvdir/OpenCV CC" ]]; then
+    if [[ "$PWD" == *"$cvdir"* ]]; then
         export FLAGS_TO_USE="$(pkg-config --cflags --libs opencv4 mylib)"
-    elif [[ "$PWD" == "~/Desktop/Coding/GTK/C++" ]]; then
+    elif [[ "$PWD" == *"~/Desktop/Coding/GTK/C++"* ]]; then
         export FLAGS_TO_USE="$(pkg-config --cflags --libs gtkmm-3.0)"
     else
         export FLAGS_TO_USE=""
@@ -204,10 +204,10 @@ alias l='ls -CF'
 alias nv=nvim
 alias rm=trash
 alias cls=clear
+alias code='code --disable-gpu'
 
 alias configzsh='nvim ~/.zshrc'
 alias confignv='nvim ~/.config/nvim/init.vim'
-
 
 export pydir='/home/rohit/Desktop/Coding/PYTHON'
 alias pydir='$pydir'
